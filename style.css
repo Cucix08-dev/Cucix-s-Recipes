@@ -5,8 +5,6 @@
 
 :root {
     --theme: rgb(255,255,255);
-
-    --ita: red;
 }
 
 body {
@@ -78,6 +76,13 @@ header {
         
 }
 
+#language-ITA.not-selected:hover{
+    text-shadow:
+        -10px 0 20px rgb(255, 0, 0),
+        0px 0 10px rgb(255, 255, 255),
+        5px 0 10px rgb(0, 255, 0);
+}
+
 #language-ENG.selected{
     color: rgb(134, 160, 255);
 
@@ -98,6 +103,12 @@ header {
     text-shadow:
         0 0 10px rgb(255, 0, 0);
 }
+
+#language-JAP.not-selected:hover{
+    text-shadow:
+        0 0 10px rgb(255, 0, 0);
+}
+
 
 .not-selected {
     transition: transform 0.4s ease, text-shadow 1s ease;
@@ -147,4 +158,35 @@ header {
 
 .category-single-container#panini img, .category-single-container#paste img, .category-single-container#carne img{
     width: 50%;
+}
+
+@keyframes waveConfirmed {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.wave-animation-confirmed {
+    animation: waveConfirmed 1s ease;
+}
+
+
+#back-button {
+    cursor: pointer;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+    aspect-ratio: 1/1;
+    border: solid 2px black;
+    border-radius: 25px;
+    background-color: white;
+    margin: 20px 0 0 20px;
+    font-size: 3vw;
+    transition: transform 0.4s ease;
+}
+
+#back-button:hover {
+    transform: translateY(-6px);
 }
