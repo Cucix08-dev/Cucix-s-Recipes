@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('font/BebasNeue.ttf') format('truetype');
+}
+
+:root {
+    --theme: rgb(255,255,255);
+
+    --ita: red;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    width: 100vw;
+    background-color: var(--theme);
+    text-align: center;
+    font-family: 'BebasNeue';
+    overflow-x: hidden;
+
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titolo-pagina {
+    height: 2vh;
+    height: 2dvh;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+#desc-pagina {
+    width: 90%;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+#container-language-selection {
+    width: 33%;
+    max-width: 350px;
+    min-width: 232px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.language {
+    cursor: pointer;
+    font-size: clamp(1.7rem, 2.3vw, 2.4rem);
+    padding: 16px;
+    
+    transition: transform 0.4s ease, text-shadow 1s ease;
+}
+
+.language:hover {
+    transform: scale(1.1);
+}
+
+.language::selection {
+    color: inherit;
+    background-color: transparent;
+}
+
+#language-ITA.selected{
+    color: rgb(255, 134, 134);
+
+    text-shadow:
+        -10px 0 20px rgb(255, 0, 0),
+        0px 0 10px rgb(255, 255, 255),
+        5px 0 10px rgb(0, 255, 0);
+        
+}
+
+#language-ENG.selected{
+    color: rgb(134, 160, 255);
+
+    text-shadow:
+        0px 0 10px rgba(255, 255, 255, 0.7),
+        5px 0 10px rgba(254, 96, 96, 0.7);
+}
+
+#language-ENG.not-selected:hover{
+    text-shadow:
+        0px 0 10px rgba(255, 255, 255, 0.7),
+        5px 0 10px rgba(254, 96, 96, 0.7);
+}
+
+#language-JAP.selected{
+    color: rgb(255, 255, 255);
+
+    text-shadow:
+        0 0 10px rgb(255, 0, 0);
+}
+
+.not-selected {
+    transition: transform 0.4s ease, text-shadow 1s ease;
+}
+
+#category-selection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+}
+
+.category-single-container {
+    margin-top: 40px;
+    cursor: pointer;
+    width: 60%;
+    aspect-ratio: 5/6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px 1px rgba(83, 82, 82, 0.581);
+
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.category-single-container:hover {
+    box-shadow: 8px 8px 8px 2px rgba(31, 31, 31, 0.871);
+
+    transform: scale(1.1);
+}
+
+.category-single-container img{
+    width: 40%;
+    aspect-ratio: 1/1;
+    margin-top: 32px;
+}
+
+.category-single-container h2{
+    width: 30%;
+    margin: 50px;
+}
+
+.category-single-container#bevande-alcoliche h2{
+    width: 50%;
+}
+
+.category-single-container#panini img, .category-single-container#paste img, .category-single-container#carne img{
+    width: 50%;
+}
