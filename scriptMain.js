@@ -3,7 +3,7 @@ const translate = document.querySelectorAll(".translate");
 const page = window.location.pathname.split("/").pop();
 let languagesTranslations;
 
-if (page === "index.html") {
+if (page === "" || page === "index" || page === "index.html") {
     languagesTranslations = {
         "language-ITA": [
             "Le ricette del Cucix",
@@ -34,7 +34,7 @@ if (page === "index.html") {
     };
 }
 
-else if (page === "panini.html") {
+else if (page === "panini" || page === "panini.html") {
     languagesTranslations = {
         "language-ITA": [
             "Panini",
@@ -53,7 +53,7 @@ else if (page === "panini.html") {
     };
 }
 
-else if (page === "bevandeAlcoliche.html") {
+else if (page === "bevandeAlcoliche" || page === "bevandeAlcoliche.html") {
     languagesTranslations = {
         "language-ITA": [
             "Bevande alcoliche",
@@ -71,6 +71,12 @@ else if (page === "bevandeAlcoliche.html") {
         ]
     };
 }
+
+if (!languagesTranslations) {
+    console.error("languagesTranslations is undefined for page:", page);
+    return;
+}
+
 
 Object.keys(languagesTranslations).forEach(id => {
     const el = document.getElementById(id);
@@ -92,8 +98,6 @@ Object.keys(languagesTranslations).forEach(id => {
         });
     });
 });
-
-console.log("test");
 
 
 document.addEventListener("DOMContentLoaded", () => {
