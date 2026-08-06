@@ -74,30 +74,29 @@ else if (page === "bevandeAlcoliche" || page === "bevandeAlcoliche.html") {
 
 if (!languagesTranslations) {
     console.error("languagesTranslations is undefined for page:", page);
-    return;
-}
+} else {
+    Object.keys(languagesTranslations).forEach(id => {
+        const el = document.getElementById(id);
 
+        el.addEventListener("click", () => {
+            Object.keys(languagesTranslations).forEach(otherId => {
+                const otherEl = document.getElementById(otherId);
+                otherEl.classList.remove("selected");
+                otherEl.classList.add("not-selected");
+            });
 
-Object.keys(languagesTranslations).forEach(id => {
-    const el = document.getElementById(id);
+            el.classList.remove("not-selected");
+            el.classList.add("selected");
 
-    el.addEventListener("click", () => {
-        Object.keys(languagesTranslations).forEach(otherId => {
-            const otherEl = document.getElementById(otherId);
-            otherEl.classList.remove("selected");
-            otherEl.classList.add("not-selected");
-        });
+            const texts = languagesTranslations[id];
 
-        el.classList.remove("not-selected");
-        el.classList.add("selected");
-
-        const texts = languagesTranslations[id];
-
-        translate.forEach((element, index) => {
-            element.innerHTML = texts[index];
+            translate.forEach((element, index) => {
+                element.innerHTML = texts[index];
+            });
         });
     });
-});
+}
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
