@@ -190,3 +190,14 @@ header {
 #back-button:hover {
     transform: translateY(-6px);
 }
+
+@media (max-width: 770px) {
+    #category-selection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-single-container {
+        margin-top: 60px;
+        width: 70%;
+    }
+}
